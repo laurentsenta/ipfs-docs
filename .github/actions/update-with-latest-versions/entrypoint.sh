@@ -59,7 +59,7 @@ update_version() {
     done <<< "$(grep "${INPUT_VERSION_IDENTIFIER}" ./docs -R --files-with-matches)"
 }
 
-cd ${ROOT}
+cd "${ROOT}"
 update_version ipfs/ipfs-update current-ipfs-updater-version
 update_version ipfs/ipfs-cluster current-ipfs-cluster-version
 update_version ipfs/go-ipfs current-ipfs-version

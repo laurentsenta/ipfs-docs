@@ -1,0 +1,7 @@
+name: 'Push a branch on change'
+outputs:
+  updated_branch:
+    description: "name of pushed branch"
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

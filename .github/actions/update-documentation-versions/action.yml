@@ -1,0 +1,4 @@
+name: 'Update documentation versions'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

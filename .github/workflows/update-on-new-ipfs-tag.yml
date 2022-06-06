@@ -1,4 +1,4 @@
-name: Update docs on new ipfs-tag release
+name: Update docs on new version (ipfs, ipfs-cluster, etc.)
 on:
   workflow_dispatch:
   schedule:
@@ -18,13 +18,19 @@ jobs:
         uses: ./.github/actions/update-on-new-ipfs-tag
         with:
           latest_ipfs_tag: ${{ steps.latest_ipfs.outputs.latest_tag }}
+      - name: Update documentation versions
+        uses: ./.github/actions/update-documentation-versions
+      - name: Push on change
+        id: push-on-change
+        uses: ./.github/actions/push-on-change
       - name: pull-request  # don't create a pr if there was no new ipfs tag
         uses: repo-sync/pull-request@65194d8015be7624d231796ddee1cd52a5023cb3 #v2.16
-        if: ${{ steps.update.outputs.updated_branch }}
+        if: ${{ steps.push-on-change.outputs.updated_branch }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           source_branch: ${{ steps.update.outputs.updated_branch }}
           destination_branch: "main"
-          pr_title: "Bump references to go-ipfs ${{ steps.latest_ipfs.outputs.latest_tag }}"
+          pr_title: "Update documentation ${{ steps.latest_ipfs.outputs.latest_tag }}"
           pr_body: "Release Notes: https://github.com/ipfs/go-ipfs/releases/${{ steps.latest_ipfs.outputs.latest_tag }}"
           pr_label: "needs/triage,P0"
+

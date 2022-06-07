@@ -1,7 +1,7 @@
 ---
 title: Server infrastructure
 description: IPFS Cluster provides data orchestration across a swarm of IPFS daemons by allocating, replicating, and tracking a global pin-set distributed among multiple peers. Learn how to install it here.
-current-ipfs-cluster-version: v0.14.0
+current-ipfs-cluster-version: v1.0.1
 ---
 
 # Server infrastructure
@@ -38,13 +38,13 @@ If you're having issues here, head over to the [official Docker documentation to
 1. Download the latest `ipfs-cluster-ctl` package from [dist.ipfs.io](https://dist.ipfs.io/#ipfs-cluster-ctl):
 
     ```shell
-    wget https://dist.ipfs.io/ipfs-cluster-ctl/v0.14.0/ipfs-cluster-ctl_v0.14.0_linux-amd64.tar.gz
+    wget https://dist.ipfs.io/ipfs-cluster-ctl/v1.0.1/ipfs-cluster-ctl_v1.0.1_linux-amd64.tar.gz
     ```
 
 1. Unzip the package:
 
     ```shell
-    tar xvzf ipfs-cluster-ctl_v0.14.0_linux-amd64.tar.gz
+    tar xvzf ipfs-cluster-ctl_v1.0.1_linux-amd64.tar.gz
 
     > ipfs-cluster-ctl/ipfs-cluster-ctl
     > ipfs-cluster-ctl/LICENSE

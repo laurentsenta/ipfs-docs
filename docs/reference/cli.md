@@ -32,7 +32,7 @@ Every command usable from the CLI is also available through the [HTTP API](/refe
 ```
 
 
-_Generated on 2021-12-09 05:36:13, from go-ipfs 0.11.0._
+_Generated on 2022-06-07 05:35:49, from go-ipfs 0.12.2._
 
 ## ipfs
 
@@ -941,16 +941,15 @@ SYNOPSIS
 DESCRIPTION
 
   Available profiles:
-    'test':
-      Reduces external interference of IPFS daemon, this
-      is useful when using the daemon in test environments.
-    'default-datastore':
-      Configures the node to use the default datastore (flatfs).
-      
-      Read the "flatfs" profile description for more information on this datastore.
-      
-      This profile may only be applied when first initializing the node.
-      
+    'server':
+      Disables local host discovery, recommended when
+      running IPFS on machines with public IPv4 addresses.
+    'local-discovery':
+      Sets default values to fields affected by the server
+      profile, enables discovery in local networks.
+    'default-networking':
+      Restores default network settings.
+      Inverse profile of the test profile.
     'flatfs':
       Configures the node to use the flatfs datastore.
       
@@ -971,15 +970,16 @@ DESCRIPTION
       
     'randomports':
       Use a random port number for swarm.
-    'server':
-      Disables local host discovery, recommended when
-      running IPFS on machines with public IPv4 addresses.
-    'local-discovery':
-      Sets default values to fields affected by the server
-      profile, enables discovery in local networks.
-    'default-networking':
-      Restores default network settings.
-      Inverse profile of the test profile.
+    'test':
+      Reduces external interference of IPFS daemon, this
+      is useful when using the daemon in test environments.
+    'default-datastore':
+      Configures the node to use the default datastore (flatfs).
+      
+      Read the "flatfs" profile description for more information on this datastore.
+      
+      This profile may only be applied when first initializing the node.
+      
     'badgerds':
       Configures the node to use the badger datastore.
       
@@ -4658,7 +4658,7 @@ SYNOPSIS
 
 DESCRIPTION
 
-  Displays the hashes of all local objects.
+  Displays the hashes of all local objects. NOTE: This treats all local objects as "raw blocks" and returns CIDv1-Raw CIDs.
 
 
 ```
